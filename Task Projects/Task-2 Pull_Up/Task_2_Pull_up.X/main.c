@@ -22,7 +22,6 @@
 #pragma config CP = OFF         // Flash memory code protection off
 
 uint8_t val;  // Declare an 8-bit unsigned variable to store the input value from PORTC
-
 void main(void) 
 {
     TRISC = 0x0F;  // Configure lower nibble (RC0-RC3) as input (1), upper nibble (RC4-RC7) as output (0)
@@ -32,7 +31,6 @@ void main(void)
     while(1)  // Infinite loop to continuously read inputs and update outputs
     {
         val = PORTC;  // Read the value from PORTC (RC0-RC3 are used as input)
-
         switch (val)  // Check the input value and determine the corresponding output on PORTD
         {
             case 0x0E:  // If RC0 is LOW (button pressed), the input will read 1110 (0x0E)

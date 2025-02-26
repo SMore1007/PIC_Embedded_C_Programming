@@ -21,7 +21,6 @@
 #pragma config CP = OFF         // Flash memory code protection off
 
 uint8_t val;  // Declare an 8-bit unsigned variable to store PORTB value
-
 void main(void) 
 {
     TRISB = 0x0F;  // Configure lower nibble (RB0-RB3) as input, upper nibble (RB4-RB7) as output
@@ -32,7 +31,6 @@ void main(void)
     while(1)  // Infinite loop to continuously check input and update output
     {
         val = PORTB;  // Read the value from PORTB
-        
         switch (val)  // Check the input value and take action accordingly
         {
             case 0x10:  // If RB4 (upper nibble) is HIGH
