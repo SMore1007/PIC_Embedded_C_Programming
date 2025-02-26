@@ -5,7 +5,6 @@
  * Created on 25 February, 2025, 9:48 PM
  */
 
-
 #include <xc.h>
 #include <stdint.h>
 
@@ -21,37 +20,46 @@
 #pragma config WRT = OFF        // Flash memory write protection off
 #pragma config CP = OFF         // Flash memory code protection off
 
+uint8_t val;  // Declare an 8-bit unsigned variable to store PORTB value
+
 void main(void) 
 {
-    // Configure RB4 - RB7 as Input (1 = Input)
-    TRISB |= 0xF0;  // 1111 0000 (Upper nibble as input)
- 
-    // Configure RC1, RC2 as Output (0 = Output)
-    TRISC &= ~(0x1U << 1); // Clear bit 1 (RC1 as Output)
-    TRISC &= ~(0x1U << 2); // Clear bit 2 (RC2 as Output)
-    
-    // Initialize Ports
-    PORTC = 0x00; 
-    PORTB = 0x00;
+    TRISB = 0x0F;  // Configure lower nibble (RB0-RB3) as input, upper nibble (RB4-RB7) as output
+    TRISC = 0x00;  // Configure PORTC as output
+    PORTB = 0x00;  // Clear PORTB (Ensure initial value is 0)
+    PORTC = 0x00;  // Clear PORTC (Ensure initial value is 0)
 
-    while(1)
+    while(1)  // Infinite loop to continuously check input and update output
     {
-        // Check which button is pressed (active LOW)
-        if (PORTB & ((0x1U << 4)))      // RB4 HIGH
+        val = PORTB;  // Read the value from PORTB
+        
+        switch (val)  // Check the input value and take action accordingly
         {
-            PORTC = 0x02;  // RC1 HIGH, RC2 LOW (0000 0010)
-        }
-        else if (PORTB & ((0x1U << 5))) // RB5 HIGH
-        {
-            PORTC = 0x04;  // RC1 LOW, RC2 HIGH (0000 0100)
-        }
-        else if (PORTB & ((0x1U << 6))) // RB6 HIGH
-        {
-            PORTC = 0x06;  // RC1 HIGH, RC2 HIGH (0000 0110)
-        }
-        else if (PORTB & ((0x1U << 7))) // RB7 HIGH
-        {
-            PORTC = 0x00;  // RC1 LOW, RC2 LOW (0000 0000)
+            case 0x10:  // If RB4 (upper nibble) is HIGH
+            {
+                PORTC = 0x02;  // Set RC1 HIGH (0000 0010 in binary)
+                break;
+            }
+            case 0x20:  // If RB5 is HIGH
+            {
+                PORTC = 0x04;  // Set RC2 HIGH (0000 0100 in binary)
+                break;
+            }
+            case 0x40:  // If RB6 is HIGH
+            {
+                PORTC = 0x06;  // Set RC1 and RC2 HIGH (0000 0110 in binary)
+                break;
+            }
+            case 0x80:  // If RB7 is HIGH
+            {
+                PORTC = 0x00;  // Turn OFF all PORTC outputs
+                break;
+            }
+            default:  // If none of the above cases match
+            {
+                PORTC = 0x00;  // Keep PORTC OFF
+            }
         }
     }
+    return;  // This statement is never reached, as the while(1) loop runs indefinitely
 }

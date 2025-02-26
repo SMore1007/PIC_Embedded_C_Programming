@@ -192,104 +192,135 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;D:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"14 main.c
-[; ;main.c: 14: 
+"15 main.c
+[; ;main.c: 15:             {
 [p x FOSC  =  HS         ]
-"15
-[; ;main.c: 15:     while(1)
-[p x WDTE  =  OFF        ]
 "16
-[; ;main.c: 16:     {
-[p x PWRTE  =  OFF       ]
+[; ;main.c: 16:                 PORTD = 0x10;
+[p x WDTE  =  OFF        ]
 "17
-[; ;main.c: 17: 
-[p x BOREN  =  OFF       ]
+[; ;main.c: 17:                 break;
+[p x PWRTE  =  OFF       ]
 "18
-[; ;main.c: 18:         if (PORTC & (1 << 0))
-[p x LVP  =  OFF         ]
+[; ;main.c: 18:             }
+[p x BOREN  =  OFF       ]
 "19
-[; ;main.c: 19:         {
-[p x CPD  =  OFF         ]
+[; ;main.c: 19:             case 0x02:
+[p x LVP  =  OFF         ]
 "20
-[; ;main.c: 20:             PORTD = 0x10;
-[p x WRT  =  OFF         ]
+[; ;main.c: 20:             {
+[p x CPD  =  OFF         ]
 "21
-[; ;main.c: 21:         }
+[; ;main.c: 21:                 PORTD = 0x04;
+[p x WRT  =  OFF         ]
+"22
+[; ;main.c: 22:                 break;
 [p x CP  =  OFF          ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"23
-[; ;main.c: 23:         {
-[v _main `(v ~T0 @X0 1 ef ]
 "24
-[; ;main.c: 24:             PORTD = 0x04;
+[; ;main.c: 24:             case 0x04:
+[v _val `uc ~T0 @X0 1 e ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"26
+[; ;main.c: 26:                 PORTD = 0x14;
+[v _main `(v ~T0 @X0 1 ef ]
+"27
+[; ;main.c: 27:                 break;
 {
 [e :U _main ]
 [f ]
 "28
-[; ;main.c: 28:             PORTD = 0x14;
-[e =| _TRISC -> -> 15 `i `Vuc ]
-"31
-[; ;main.c: 31:         {
-[e =& _TRISD -> ~ << -> 1 `ui -> 2 `i `Vuc ]
-"32
-[; ;main.c: 32:             PORTD = 0x00;
-[e =& _TRISD -> ~ << -> 1 `ui -> 4 `i `Vuc ]
-"35
-[; ;main.c: 35: }
+[; ;main.c: 28:             }
+[e = _TRISC -> -> 15 `i `uc ]
+"29
+[; ;main.c: 29:             case 0x08:
+[e = _TRISD -> -> 0 `i `uc ]
+"30
+[; ;main.c: 30:             {
 [e = _PORTC -> -> 0 `i `uc ]
-"36
-[e = _PORTD -> -> 0 `i `uc ]
-"38
+"32
+[; ;main.c: 32:                 break;
 [e :U 101 ]
-"39
+"33
+[; ;main.c: 33:             }
 {
-"41
-[e $ ! != & -> _PORTC `i << -> 1 `i -> 0 `i -> 0 `i 103  ]
-"42
-{
-"43
-[e = _PORTD -> -> 16 `i `uc ]
-"44
-}
+"34
+[; ;main.c: 34:             default:
+[e = _val _PORTC ]
+"36
+[; ;main.c: 36:                 PORTD = 0x00;
 [e $U 104  ]
-"45
-[e :U 103 ]
-[e $ ! != & -> _PORTC `i << -> 1 `i -> 1 `i -> 0 `i 105  ]
-"46
+"37
+[; ;main.c: 37:             }
 {
-"47
-[e = _PORTD -> -> 4 `i `uc ]
-"48
-}
-[e $U 106  ]
-"49
+"38
+[; ;main.c: 38:         }
 [e :U 105 ]
-[e $ ! != & -> _PORTC `i << -> 1 `i -> 2 `i -> 0 `i 107  ]
-"50
+"39
+[; ;main.c: 39:     }
 {
-"51
+"40
+[; ;main.c: 40:     return;
+[e = _PORTD -> -> 16 `i `uc ]
+"41
+[; ;main.c: 41: }
+[e $U 103  ]
+"42
+}
+"43
+[e :U 106 ]
+"44
+{
+"45
+[e = _PORTD -> -> 4 `i `uc ]
+"46
+[e $U 103  ]
+"47
+}
+"48
+[e :U 107 ]
+"49
+{
+"50
 [e = _PORTD -> -> 20 `i `uc ]
+"51
+[e $U 103  ]
 "52
 }
-[e $U 108  ]
 "53
-[e :U 107 ]
-[e $ ! != & -> _PORTC `i << -> 1 `i -> 3 `i -> 0 `i 109  ]
+[e :U 108 ]
 "54
 {
 "55
 [e = _PORTD -> -> 0 `i `uc ]
 "56
-}
-[e :U 109 ]
-[e :U 108 ]
-[e :U 106 ]
-[e :U 104 ]
+[e $U 103  ]
 "57
+}
+"58
+[e :U 109 ]
+"59
+{
+"60
+[e = _PORTD -> -> 0 `i `uc ]
+"61
+}
+"62
+}
+[e $U 103  ]
+[e :U 104 ]
+[e [\ _val , $ -> 1 `i 105
+ , $ -> 2 `i 106
+ , $ -> 4 `i 107
+ , $ -> 8 `i 108
+ 109 ]
+[e :U 103 ]
+"63
 }
 [e :U 100 ]
 [e $U 101  ]
 [e :U 102 ]
-"58
+"64
+[e $UE 99  ]
+"65
 [e :UE 99 ]
 }

@@ -14,6 +14,7 @@
 
 
 
+
 # 1 "D:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
 # 18 "D:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1902,7 +1903,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "D:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 9 "main.c" 2
+# 10 "main.c" 2
 
 
 
@@ -1917,39 +1918,45 @@ extern __bank0 __bit __timeout;
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
+unsigned char val;
+
 void main(void)
 {
-
-
-
-    TRISC |= 0x0F;
-
-
-    TRISD &= ~(0x1U << 2);
-    TRISD &= ~(0x1U << 4);
-
-
+    TRISC = 0x0F;
+    TRISD = 0x00;
     PORTC = 0x00;
-    PORTD = 0x00;
 
     while(1)
     {
+        val = PORTC;
 
-        if (PORTC & (1 << 0))
+        switch (val)
         {
-            PORTD = 0x10;
-        }
-        else if (PORTC & (1 << 1))
-        {
-            PORTD = 0x04;
-        }
-        else if (PORTC & (1 << 2))
-        {
-            PORTD = 0x14;
-        }
-        else if (PORTC & (1 << 3))
-        {
-            PORTD = 0x00;
+            case 0x01:
+            {
+                PORTD = 0x10;
+                break;
+            }
+            case 0x02:
+            {
+                PORTD = 0x04;
+                break;
+            }
+            case 0x04:
+            {
+                PORTD = 0x14;
+                break;
+            }
+            case 0x08:
+            {
+                PORTD = 0x00;
+                break;
+            }
+            default:
+            {
+                PORTD = 0x00;
+            }
         }
     }
+    return;
 }

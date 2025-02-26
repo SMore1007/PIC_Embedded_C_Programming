@@ -21,39 +21,45 @@
 #pragma config WRT = OFF        // Flash memory write protection off
 #pragma config CP = OFF         // Flash memory code protection off
 
+uint8_t val;  // Declare an 8-bit unsigned variable to store the input value from PORTC
+
 void main(void) 
 {
-    /////////////// For Best Practice bitwise Operation ////////////////
-    
-    // Configure RC0 - RC3 as Input (1 = Input)
-    TRISC |= 0x0F;  // 0000 1111 (lower nibble as input)
- 
-    // Configure RD2, RD4 as Output (0 = Output)
-    TRISD &= ~(0x1U << 2); // Clear bit 1 (RD2 as Output)
-    TRISD &= ~(0x1U << 4); // Clear bit 2 (RD4 as Output)
-    
-    // Initialize Ports
-    PORTC = 0x00; 
-    PORTD = 0x00;
+    TRISC = 0x0F;  // Configure lower nibble (RC0-RC3) as input (1), upper nibble (RC4-RC7) as output (0)
+    TRISD = 0x00;  // Configure PORTD as output (all bits set to 0 for output)
+    PORTC = 0x00;  // Clear PORTC (ensure all outputs are LOW initially)
 
-    while(1)
+    while(1)  // Infinite loop to continuously read inputs and update outputs
     {
-        // Check which button is pressed (active LOW)
-        if (!(PORTC & (1 << 0)))      // RC0 LOW
+        val = PORTC;  // Read the value from PORTC (RC0-RC3 are used as input)
+
+        switch (val)  // Check the input value and determine the corresponding output on PORTD
         {
-            PORTD = 0x10;  // RD2 LOW, RD4 HIGH (0001 0000)
-        }
-        else if (!(PORTC & (1 << 1)))  // RC1 LOW
-        {
-            PORTD = 0x04;  // RD2 HIGH, RD4 LOW (0000 0100)
-        }
-        else if (!(PORTC & (1 << 2)))  // RC2 LOW
-        {
-            PORTD = 0x14;  // RD2 LOW, RD4 HIGH (0001 0100)
-        }
-        else if (!(PORTC & (1 << 3)))  // RC3 LOW
-        {
-            PORTD = 0x00;  // RD2 LOW, RD4 HIGH (0000 0000)
+            case 0x0E:  // If RC0 is LOW (button pressed), the input will read 1110 (0x0E)
+            {
+                PORTD = 0x10;  // Set RD4 HIGH (0001 0000 in binary)
+                break;
+            }
+            case 0x0D:  // If RC1 is LOW (button pressed), the input will read 1101 (0x0D)
+            {
+                PORTD = 0x04;  // Set RD2 HIGH (0000 0100 in binary)
+                break;
+            }
+            case 0x0B:  // If RC2 is LOW (button pressed), the input will read 1011 (0x0B)
+            {
+                PORTD = 0x14;  // Set RD4 and RD2 HIGH (0001 0100 in binary)
+                break;
+            }
+            case 0x07:  // If RC3 is LOW (button pressed), the input will read 0111 (0x07)
+            {
+                PORTD = 0x00;  // Turn OFF all PORTD outputs
+                break;
+            }
+            default:  // If no valid input condition is met (all buttons released)
+            {
+                PORTD = 0x00;  // Keep PORTD OFF
+            }
         }
     }
+    return;  // This statement is never reached due to the infinite loop
 }

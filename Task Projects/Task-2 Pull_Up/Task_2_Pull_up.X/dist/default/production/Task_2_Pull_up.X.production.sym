@@ -1,9 +1,10 @@
 __S0 800 0 ABS 0
-__S1 0 0 ABS 0
+__S1 71 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 7D2 0 CODE 0
+_val 70 0 COMMON 1
+_main 7D5 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 0 0 CODE 0
@@ -51,6 +52,9 @@ __Ltext 0 0 ABS 0
 ___heap_lo 0 0 ABS 0
 end_of_initialization 7FC 0 CODE 0
 ___stacklo 0 0 ABS 0
+__HnvCOMMON 0 0 ABS 0
+__LnvCOMMON 0 0 ABS 0
+__pnvCOMMON 70 0 COMMON 1
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
 __Hbank0 0 0 ABS 0
@@ -74,7 +78,7 @@ __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 __Hspace_0 800 0 ABS 0
 __Lspace_0 0 0 ABS 0
-__Hspace_1 0 0 ABS 0
+__Hspace_1 71 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
@@ -102,35 +106,41 @@ start_initialization 7FC 0 CODE 0
 ___int_stack_lo 0 0 STACK 2
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 7D2 0 CODE 0
+__pmaintext 7D5 0 CODE 0
 __initialization 7FC 0 CODE 0
 %segments
 reset_vec 0 5 CODE 0 0
 cinit FF8 FFF CODE FF8 0
-maintext FA4 FF7 CODE FA4 0
+nvCOMMON 70 70 COMMON 70 1
+maintext FAA FF7 CODE FAA 0
 %locals
 dist/default/production\Task_2_Pull_up.X.production.o
-C:\Users\sagar\AppData\Local\Temp\xcAs3ok.\driver_tmp_1.s
-356 7FC 0 CODE 0
-359 7FC 0 CODE 0
-365 7FC 0 CODE 0
-367 7FC 0 CODE 0
-368 7FD 0 CODE 0
+C:\Users\sagar\AppData\Local\Temp\xcAsjd8.\driver_tmp_1.s
+363 7FC 0 CODE 0
+366 7FC 0 CODE 0
+372 7FC 0 CODE 0
+374 7FC 0 CODE 0
+375 7FD 0 CODE 0
 main.c
-24 7D2 0 CODE 0
-29 7D2 0 CODE 0
-32 7D6 0 CODE 0
-33 7D8 0 CODE 0
-36 7DA 0 CODE 0
-37 7DD 0 CODE 0
-42 7DE 0 CODE 0
-44 7E2 0 CODE 0
-45 7E4 0 CODE 0
+26 7D5 0 CODE 0
+28 7D5 0 CODE 0
+29 7D9 0 CODE 0
+30 7DA 0 CODE 0
+34 7DD 0 CODE 0
+36 7DF 0 CODE 0
+38 7E0 0 CODE 0
+40 7E0 0 CODE 0
+41 7E2 0 CODE 0
+43 7E3 0 CODE 0
+45 7E3 0 CODE 0
 46 7E5 0 CODE 0
-48 7E9 0 CODE 0
-49 7EB 0 CODE 0
-50 7EC 0 CODE 0
-52 7F0 0 CODE 0
-53 7F2 0 CODE 0
-54 7F3 0 CODE 0
-57 7F8 0 CODE 0
+48 7E6 0 CODE 0
+50 7E6 0 CODE 0
+51 7E8 0 CODE 0
+55 7E9 0 CODE 0
+56 7EA 0 CODE 0
+62 7EB 0 CODE 0
+62 7ED 0 CODE 0
+62 7F0 0 CODE 0
+62 7F3 0 CODE 0
+62 7F6 0 CODE 0

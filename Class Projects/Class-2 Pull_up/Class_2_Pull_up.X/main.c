@@ -20,49 +20,45 @@
 #pragma config WRT = OFF        // Flash memory write protection off
 #pragma config CP = OFF         // Flash memory code protection off
 
+uint8_t val;  // Declare an 8-bit unsigned variable to store the PORTB value
+
 void main(void) 
 {
-    ////////////// WE Can do this as well //////////////////////
-    /*
-    // RB4 to RB7 are in  input mode
-    TRISB = 0xF0;      // 1111 0000
-    // RC1 and RC2 are in Output mode
-    TRISC = 0xF9;      // 1111 1001
-     */
-    /////////////// For Best Practice bitwise Operation ////////////////
-    
-    // Configure RB4 - RB7 as Input (1 = Input)
-    TRISB |= 0xF0;  // 1111 0000 (Upper nibble as input)
-    
-    // Enable pull-ups on PORTB
-    OPTION_REG &= ~(1 << 7);  // Clear RBPU (Enable PORTB pull-ups)
-    
-    // Configure RC1, RC2 as Output (0 = Output)
-    TRISC &= ~(1 << 1); // Clear bit 1 (RC1 as Output)
-    TRISC &= ~(1 << 2); // Clear bit 2 (RC2 as Output)
-    
-    // Initialize Ports
-    PORTC = 0x00; 
-    PORTB = 0x00;
+    TRISB = 0xF0;  // Configure upper nibble (RB4-RB7) as input (1), lower nibble (RB0-RB3) as output (0)
+    TRISC = 0x00;  // Configure PORTC as output (all bits set to 0 for output)
+    PORTB = 0x00;  // Initialize PORTB to 0 (not necessary as pull-up resistors will handle inputs)
 
-    while(1)
+    while(1)  // Infinite loop to continuously monitor inputs and update outputs
     {
-        // Check which button is pressed (active LOW)
-        if (!(PORTB & (1 << 4)))      // RB4 LOW
+        val = PORTB;  // Read the value from PORTB (RB4-RB7 are used as input)
+
+        switch (val)  // Check the input value and decide the output on PORTC
         {
-            PORTC = 0x02;  // RC1 HIGH, RC2 LOW (0000 0010)
-        }
-        else if (!(PORTB & (1 << 5))) // RB5 LOW
-        {
-            PORTC = 0x04;  // RC1 LOW, RC2 HIGH (0000 0100)
-        }
-        else if (!(PORTB & (1 << 6))) // RB6 LOW
-        {
-            PORTC = 0x06;  // RC1 HIGH, RC2 HIGH (0000 0110)
-        }
-        else if (!(PORTB & (1 << 7))) // RB7 LOW
-        {
-            PORTC = 0x00;  // RC1 LOW, RC2 LOW (0000 0000)
+            case 0xE0:  // If RB5, RB6, RB7 are HIGH, and RB4 is LOW (0b1110 0000)
+            {
+                PORTC = 0x02;  // Set RC1 HIGH (0000 0010 in binary)
+                break;
+            }
+            case 0xD0:  // If RB4, RB6, RB7 are HIGH, and RB5 is LOW (0b1101 0000)
+            {
+                PORTC = 0x04;  // Set RC2 HIGH (0000 0100 in binary)
+                break;
+            }
+            case 0xB0:  // If RB4, RB5, RB7 are HIGH, and RB6 is LOW (0b1011 0000)
+            {
+                PORTC = 0x06;  // Set RC1 and RC2 HIGH (0000 0110 in binary)
+                break;
+            }
+            case 0x70:  // If RB4, RB5, RB6 are HIGH, and RB7 is LOW (0b0111 0000)
+            {
+                PORTC = 0x00;  // Turn OFF all PORTC outputs
+                break;
+            }
+            default:  // If none of the specific cases match
+            {
+                PORTC = 0x00;  // Keep PORTC OFF
+            }
         }
     }
+    return;  // This statement is never reached due to the infinite loop
 }

@@ -1918,39 +1918,45 @@ extern __bank0 __bit __timeout;
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
+unsigned char val;
+
 void main(void)
 {
-
-
-
-    TRISC |= 0x0F;
-
-
-    TRISD &= ~(0x1U << 2);
-    TRISD &= ~(0x1U << 4);
-
-
+    TRISC = 0x0F;
+    TRISD = 0x00;
     PORTC = 0x00;
-    PORTD = 0x00;
 
     while(1)
     {
+        val = PORTC;
 
-        if (!(PORTC & (1 << 0)))
+        switch (val)
         {
-            PORTD = 0x10;
-        }
-        else if (!(PORTC & (1 << 1)))
-        {
-            PORTD = 0x04;
-        }
-        else if (!(PORTC & (1 << 2)))
-        {
-            PORTD = 0x14;
-        }
-        else if (!(PORTC & (1 << 3)))
-        {
-            PORTD = 0x00;
+            case 0x0E:
+            {
+                PORTD = 0x10;
+                break;
+            }
+            case 0x0D:
+            {
+                PORTD = 0x04;
+                break;
+            }
+            case 0x0B:
+            {
+                PORTD = 0x14;
+                break;
+            }
+            case 0x07:
+            {
+                PORTD = 0x00;
+                break;
+            }
+            default:
+            {
+                PORTD = 0x00;
+            }
         }
     }
+    return;
 }

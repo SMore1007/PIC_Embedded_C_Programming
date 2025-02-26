@@ -11,7 +11,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"24 E:\Users\sagar\Argyn Technology\Task Projects\Task-2 Pull_Up\Task_2_Pull_up.X\main.c
+"26 E:\Users\sagar\Argyn Technology\Task Projects\Task-2 Pull_Up\Task_2_Pull_up.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "278 D:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
@@ -22,7 +22,9 @@
 "1499
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "24 E:\Users\sagar\Argyn Technology\Task Projects\Task-2 Pull_Up\Task_2_Pull_up.X\main.c
+[v _val val `uc  1 e 1 0 ]
+"26
 [v _main main `(v  1 e 1 0 ]
 {
-"59
+"65
 } 0

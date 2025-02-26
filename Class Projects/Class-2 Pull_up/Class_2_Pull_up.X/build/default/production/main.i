@@ -1917,40 +1917,45 @@ extern __bank0 __bit __timeout;
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
+unsigned char val;
+
 void main(void)
 {
-
-    TRISB |= 0xF0;
-
-
-    OPTION_REG &= ~(1 << 7);
-
-
-    TRISC &= ~(1 << 1);
-    TRISC &= ~(1 << 2);
-
-
-    PORTC = 0x00;
+    TRISB = 0xF0;
+    TRISC = 0x00;
     PORTB = 0x00;
 
     while(1)
     {
-
-        if (!(PORTB & (1 << 4)))
+        val = PORTB;
+        switch (val)
         {
-            PORTC = 0x02;
-        }
-        else if (!(PORTB & (1 << 5)))
-        {
-            PORTC = 0x04;
-        }
-        else if (!(PORTB & (1 << 6)))
-        {
-            PORTC = 0x06;
-        }
-        else if (!(PORTB & (1 << 7)))
-        {
-            PORTC = 0x00;
+            case 0xE0:
+            {
+                PORTC = 0x02;
+                break;
+            }
+            case 0xD0:
+            {
+                PORTC = 0x04;
+                break;
+            }
+            case 0xB0:
+            {
+                PORTC = 0x06;
+                break;
+            }
+            case 0x70:
+            {
+                PORTC = 0x00;
+                break;
+            }
+            default:
+            {
+                PORTC = 0x00;
+            }
         }
     }
+    return ;
+# 107 "main.c"
 }
