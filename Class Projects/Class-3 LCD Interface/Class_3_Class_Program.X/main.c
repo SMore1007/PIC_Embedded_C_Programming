@@ -3,7 +3,6 @@
  * Author: Sagar
  * Created on 9 March, 2025, 3:57 PM
  */
-
 #include <xc.h>
 #include <stdint.h>
 #include<stdio.h>
