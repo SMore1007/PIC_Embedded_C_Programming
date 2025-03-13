@@ -53,13 +53,10 @@ void Lcdinit(void) {
     __delay_ms(100);
     LcdCommand(0x30);  // Repeat function set command again
     __delay_ms(100);
-    
     LcdCommand(0x38);  // Set LCD for 8-bit mode, 2-line display, 5x8 font
     __delay_ms(100);
-    
     LcdCommand(0x0C);  // Turn on display, cursor off
     __delay_ms(100);
-    
     LcdCommand(0x01);  // Clear the display
     __delay_ms(100);
 }

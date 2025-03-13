@@ -20,33 +20,25 @@
 
 
 #define _XTAL_FREQ 20000000  // Define the crystal oscillator frequency as 20MHz (for delay functions)
-
 void Lcdinit(void);          // Function prototype for LCD initialization
 void LcdCommand(uint8_t);    // Function prototype for sending commands to the LCD
 void LcdData(uint8_t);       // Function prototype for sending data to the LCD
-
-uint8_t x, i, m;             // Declare global variables
-
+uint8_t x, i, m;             // Declare global variable
 uint8_t name[18] = {"SAGAR"}; // Character array storing the name to display
 
-void main(void) 
-{
+void main(void){
     Lcdinit();  // Initialize the LCD
-    
     // Display "SAGAR" starting from the first row, first column (0x80)
-    for (uint8_t i = 0; i < 11; i++)  
-    {
-        LcdCommand((uint8_t)(0x80 + i));  // Move the cursor to the respective position (casting to uint8_t)
-        LcdData(name[i]);                 // Send each character to the LCD
-    }
-
-    // Display "SAGAR" starting from the second row, last column (0xCF)
-    for (uint8_t i = 0; i < 11; i++)  
-    {
-        LcdCommand((uint8_t)(0xCF - i));  // Move cursor from right to left on the second row (casting to uint8_t)
+    for (uint8_t i = 0; i < 11; i++){
+        LcdCommand((uint8_t)(0x82 + i));  // Move the cursor to the respective position (casting to uint8_t)
         LcdData(name[i]);                 // Send each character to the LCD
     }
     
+    // Display "SAGAR" starting from the second row, last column (0xCF)
+    for (uint8_t i = 0; i < 11; i++){
+        LcdCommand((uint8_t)(0xCD - i));  // Move cursor from right to left on the second row (casting to uint8_t)
+        LcdData(name[i]);                 // Send each character to the LCD
+    }
     while(1);  // Infinite loop to keep the program running
 }
 

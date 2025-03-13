@@ -6,10 +6,10 @@ Linker command line:
   --edf=D:\Program Files\Microchip\xc8\v3.00\pic\dat\20241204225717_en.msgs \
   -cn -h+dist/default/production\Class_3_Task_Program.X.production.sym \
   --cmf=dist/default/production\Class_3_Task_Program.X.production.cmf -z \
-  -Q16F877A -oC:\Users\sagar\AppData\Local\Temp\xcAsdms.\driver_tmp_3.o \
+  -Q16F877A -oC:\Users\sagar\AppData\Local\Temp\xcAs6s0.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/Class_3_Task_Program.X.production.map \
-  --md=C:\Users\sagar\AppData\Local\Temp\xcAsdms.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\sagar\AppData\Local\Temp\xcAs6s0.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -22,7 +22,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\sagar\AppData\Local\Temp\xcAsdms.\driver_tmp_12.o \
+  C:\Users\sagar\AppData\Local\Temp\xcAs6s0.\driver_tmp_12.o \
   dist/default/production\Class_3_Task_Program.X.production.o 
 
 Object code version is 3.11
@@ -32,10 +32,12 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\sagar\AppData\Local\Temp\xcAsdms.\driver_tmp_12.o
+C:\Users\sagar\AppData\Local\Temp\xcAs6s0.\driver_tmp_12.o
                 end_init                              0        0        3        0       0
+                config                             2007     2007        1        0       4
 dist/default/production\Class_3_Task_Program.X.production.o
                 cinit                               7EB      7EB       15      FD6       0
+                config                             2007     2007        1        0       4
                 text3                               6F7      6F7       19      DEE       0
                 text2                               710      710       1A      E20       0
                 text1                               767      767       84      ECE       0
@@ -92,6 +94,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   SFR3           
 
         CLASS   CONFIG         
+                config                             2007     2007        1         4
 
         CLASS   IDLOC          
 
@@ -127,7 +130,6 @@ UNUSED ADDRESS RANGES
         CODE             0003-06D1            6CF           2
                          0800-1FFF            800
         COMMON           007C-007D              2           1
-        CONFIG           2007-2007              1           2
         CONST            0003-06D1            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
@@ -169,6 +171,7 @@ __Hcinit                 cinit        0800
 __Hclrtext               clrtext      0000
 __Hcode                  code         0000
 __Hcommon                common       0000
+__Hconfig                config       2008
 __HcstackCOMMON          cstackCOMMON 0000
 __HdataBANK0             dataBANK0    0000
 __Heeprom_data           eeprom_data  0000
@@ -192,6 +195,7 @@ __Hspace_0               (abs)        0800
 __Hspace_1               (abs)        007C
 __Hspace_2               (abs)        0000
 __Hspace_3               (abs)        0000
+__Hspace_4               (abs)        400F
 __Hstack                 stack        0000
 __Hstrings               strings      0000
 __Htext                  text         0000
@@ -206,6 +210,7 @@ __Lcinit                 cinit        07EB
 __Lclrtext               clrtext      0000
 __Lcode                  code         0000
 __Lcommon                common       0000
+__Lconfig                config       0000
 __LcstackCOMMON          cstackCOMMON 0000
 __LdataBANK0             dataBANK0    0000
 __Leeprom_data           eeprom_data  0000
@@ -229,6 +234,7 @@ __Lspace_0               (abs)        0000
 __Lspace_1               (abs)        0000
 __Lspace_2               (abs)        0000
 __Lspace_3               (abs)        0000
+__Lspace_4               (abs)        0000
 __Lstack                 stack        0000
 __Lstrings               strings      0000
 __Ltext                  text         0000

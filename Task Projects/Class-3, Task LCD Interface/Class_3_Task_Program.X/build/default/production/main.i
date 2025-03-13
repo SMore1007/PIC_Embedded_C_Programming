@@ -2058,12 +2058,21 @@ char *tempnam(const char *, const char *);
 # 10 "main.c" 2
 
 
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
 
 
 void Lcdinit(void);
 void LcdCommand(uint8_t);
 void LcdData(uint8_t);
-
 uint8_t x, i, m;
 
 uint8_t name[18] = {"SAGAR"};
@@ -2071,35 +2080,46 @@ uint8_t name[18] = {"SAGAR"};
 void main(void)
 {
     Lcdinit();
+
+
     for (uint8_t i = 0; i < 11; i++)
     {
-        LcdCommand((uint8_t)(0x80 + i));
+        LcdCommand((uint8_t)(0x82 + i));
         LcdData(name[i]);
     }
+
+
     for (uint8_t i = 0; i < 11; i++)
     {
-        LcdCommand((uint8_t)(0xCF - i));
+        LcdCommand((uint8_t)(0xCD - i));
         LcdData(name[i]);
     }
 
     while(1);
 }
 
+
 void Lcdinit(void)
 {
     TRISC = 0x00;
     TRISD = 0x00;
+
     _delay((unsigned long)((100)*(20000000/4000.0)));
+
+
     LcdCommand(0x30);
     _delay((unsigned long)((100)*(20000000/4000.0)));
     LcdCommand(0x30);
     _delay((unsigned long)((100)*(20000000/4000.0)));
     LcdCommand(0x30);
     _delay((unsigned long)((100)*(20000000/4000.0)));
+
     LcdCommand(0x38);
     _delay((unsigned long)((100)*(20000000/4000.0)));
+
     LcdCommand(0x0C);
     _delay((unsigned long)((100)*(20000000/4000.0)));
+
     LcdCommand(0x01);
     _delay((unsigned long)((100)*(20000000/4000.0)));
 }
@@ -2113,6 +2133,7 @@ void LcdData(uint8_t i)
     _delay((unsigned long)((100)*(20000000/4000.0)));
     PORTC &= ~(0x1 << 0);
 }
+
 
 void LcdCommand(uint8_t i)
 {
