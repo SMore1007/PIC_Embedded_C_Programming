@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>class_1_Task_Program</name>
+            <name>Class_1_Task_Program_LED_Blink</name>
             <creation-uuid>8d468b80-d010-4c5b-82ac-17378168d302</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
