@@ -7,7 +7,6 @@
 
 #include <xc.h>
 #include <stdint.h>
-
 #define _XTAL_FREQ 6000000
 
 // CONFIG
