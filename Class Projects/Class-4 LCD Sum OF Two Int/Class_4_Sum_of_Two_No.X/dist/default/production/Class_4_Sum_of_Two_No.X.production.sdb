@@ -1,0 +1,103 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"5 D:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 D:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 D:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 D:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 D:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"31 E:\Users\sagar\Argyn Technology\Class Projects\Class-4 LCD Sum OF Two Int\Class_4_Sum_of_Two_No.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"57
+[v _LcdOutput LcdOutput `(v  1 e 1 0 ]
+"82
+[v _Lcdinit Lcdinit `(v  1 e 1 0 ]
+"104
+[v _LcdData LcdData `(v  1 e 1 0 ]
+"113
+[v _LcdCommand LcdCommand `(v  1 e 1 0 ]
+"278 D:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1499
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"28 E:\Users\sagar\Argyn Technology\Class Projects\Class-4 LCD Sum OF Two Int\Class_4_Sum_of_Two_No.X\main.c
+[v _Equal Equal `uc  1 e 1 0 ]
+[v _plus plus `uc  1 e 1 0 ]
+"29
+[v _num1 num1 `us  1 e 2 0 ]
+[v _num2 num2 `us  1 e 2 0 ]
+[v _sum sum `us  1 e 2 0 ]
+"31
+[v _main main `(v  1 e 1 0 ]
+{
+"55
+} 0
+"82
+[v _Lcdinit Lcdinit `(v  1 e 1 0 ]
+{
+"101
+} 0
+"113
+[v _LcdCommand LcdCommand `(v  1 e 1 0 ]
+{
+[v LcdCommand@i i `uc  1 p 1 wreg ]
+[v LcdCommand@i i `uc  1 p 1 wreg ]
+[v LcdCommand@i i `uc  1 p 1 3 ]
+"119
+} 0
+"57
+[v _LcdOutput LcdOutput `(v  1 e 1 0 ]
+{
+"76
+[v LcdOutput@j j `i  1 a 2 12 ]
+"59
+[v LcdOutput@digits digits `[5]i  1 a 10 0 ]
+"60
+[v LcdOutput@count count `i  1 a 2 10 ]
+"57
+[v LcdOutput@i i `us  1 p 2 7 ]
+"79
+} 0
+"5 D:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 4 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
+"25
+} 0
+"5 D:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"30
+} 0
+"104 E:\Users\sagar\Argyn Technology\Class Projects\Class-4 LCD Sum OF Two Int\Class_4_Sum_of_Two_No.X\main.c
+[v _LcdData LcdData `(v  1 e 1 0 ]
+{
+[v LcdData@i i `uc  1 p 1 wreg ]
+[v LcdData@i i `uc  1 p 1 wreg ]
+[v LcdData@i i `uc  1 p 1 3 ]
+"110
+} 0
