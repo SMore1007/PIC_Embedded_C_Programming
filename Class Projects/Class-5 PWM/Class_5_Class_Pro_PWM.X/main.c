@@ -18,23 +18,19 @@
 #include <xc.h>
 #include<stdint.h>
 
-#define _XTAL_FREQ 2000000
+#define _XTAL_FREQ 6000000  // Define oscillator frequency for delay
+
 void pwmInit(void);
 void pwmDutyCycleUpdate(void);
 uint8_t pwm10_lower, pwm10_upper;
 uint8_t pwm50_lower, pwm50_upper;
 uint8_t pwm80_lower, pwm80_upper;
 
-#include <xc.h>
-#include<stdint.h>
-
-#define _XTAL_FREQ 2000000  // Define oscillator frequency for delay
-void pwmInit(void);
-void pwmDutyCycleUpdate(void);
-
-void main(void) {
+void main(void) 
+{
     pwmInit();
-    while (1) {
+    while (1) 
+    {
         pwmDutyCycleUpdate();
     }
 }
@@ -57,7 +53,8 @@ void pwmInit(void) {
     TMR2ON = 1;  // Turn on Timer2
 }
 
-void pwmDutyCycleUpdate(void) {
+void pwmDutyCycleUpdate(void) 
+{
     /************** 10% duty cycle ****************/
     CCPR1L = pwm10_upper;  // Upper 8 bits
     CCP1CON &= ~(0x3 << 4);

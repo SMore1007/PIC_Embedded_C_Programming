@@ -23,6 +23,8 @@
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
+
+
 # 1 "D:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
 # 18 "D:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1911,7 +1913,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "D:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 18 "main.c" 2
+# 20 "main.c" 2
 
 
 
@@ -1957,17 +1959,17 @@ void pwmDutyCycleUpdate(void) {
     CCPR1L = pwm20_upper;
     CCP1CON &= ~(0x3 << 4);
     CCP1CON |= (pwm20_lower << 4);
-    _delay((unsigned long)((3000)*(2000000/4000.0)));
+    _delay((unsigned long)((3000)*(6000000/4000.0)));
 
 
     CCPR1L = pwm60_upper;
     CCP1CON &= ~(0x3 << 4);
     CCP1CON |= (pwm60_lower << 4);
-    _delay((unsigned long)((3000)*(2000000/4000.0)));
+    _delay((unsigned long)((3000)*(6000000/4000.0)));
 
 
     CCPR1L = pwm90_upper;
     CCP1CON &= ~(0x3 << 4);
     CCP1CON |= (pwm90_lower << 4);
-    _delay((unsigned long)((3000)*(2000000/4000.0)));
+    _delay((unsigned long)((3000)*(6000000/4000.0)));
 }

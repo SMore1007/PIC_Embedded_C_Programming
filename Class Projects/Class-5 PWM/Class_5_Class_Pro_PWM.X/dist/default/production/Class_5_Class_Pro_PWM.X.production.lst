@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Wed Apr 02 14:51:36 2025
+                                                                                               Wed Apr 09 10:59:42 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	16F877A
@@ -257,7 +257,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    243 ;;
    244 ;; *************** function _main *****************
    245 ;; Defined at:
-   246 ;;		line 35 in file "main.c"
+   246 ;;		line 29 in file "main.c"
    247 ;; Parameters:    Size  Location     Type
    248 ;;		None
    249 ;; Auto vars:     Size  Location     Type
@@ -293,11 +293,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    279                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    280                           
    281                           
-   282                           ;main.c: 36:     pwmInit();
+   282                           ;main.c: 31:     pwmInit();
    283     0774  120A  118A  2782  120A  118A  	fcall	_pwmInit
    284     0779                     l616:
    285                           
-   286                           ;main.c: 38:         pwmDutyCycleUpdate();
+   286                           ;main.c: 33:     {;main.c: 34:         pwmDutyCycleUpdate();
    287     0779  120A  118A  279F  120A  118A  	fcall	_pwmDutyCycleUpdate
    288     077E  2F79               	goto	l616
    289     077F  120A  118A  2800   	ljmp	start
@@ -307,7 +307,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    293     0782                     __ptext1:	
    294 ;; *************** function _pwmInit *****************
    295 ;; Defined at:
-   296 ;;		line 42 in file "main.c"
+   296 ;;		line 38 in file "main.c"
    297 ;; Parameters:    Size  Location     Type
    298 ;;		None
    299 ;; Auto vars:     Size  Location     Type
@@ -342,60 +342,60 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    328                           ; Regs used in _pwmInit: [status,2]
    329                           
    330                           
-   331                           ;main.c: 43:     TRISC = 0xFB;
+   331                           ;main.c: 39:     TRISC = 0xFB;
    332     0782  30FB               	movlw	251
    333     0783  1683               	bsf	3,5	;RP0=1, select bank1
    334     0784  1303               	bcf	3,6	;RP1=0, select bank1
    335     0785  0087               	movwf	7	;volatile
    336                           
-   337                           ;main.c: 44:     CCP1CON = 0x0C;
+   337                           ;main.c: 40:     CCP1CON = 0x0C;
    338     0786  300C               	movlw	12
    339     0787  1283               	bcf	3,5	;RP0=0, select bank0
    340     0788  1303               	bcf	3,6	;RP1=0, select bank0
    341     0789  0097               	movwf	23	;volatile
    342                           
-   343                           ;main.c: 45:     T2CON = 0x06;
+   343                           ;main.c: 41:     T2CON = 0x06;
    344     078A  3006               	movlw	6
    345     078B  0092               	movwf	18	;volatile
    346                           
-   347                           ;main.c: 46:     PR2 = 0x5E;
+   347                           ;main.c: 42:     PR2 = 0x5E;
    348     078C  305E               	movlw	94
    349     078D  1683               	bsf	3,5	;RP0=1, select bank1
    350     078E  1303               	bcf	3,6	;RP1=0, select bank1
    351     078F  0092               	movwf	18	;volatile
    352                           
-   353                           ;main.c: 47:     pwm10_lower = 0x02;
+   353                           ;main.c: 43:     pwm10_lower = 0x02;
    354     0790  3002               	movlw	2
    355     0791  00F3               	movwf	_pwm10_lower
    356                           
-   357                           ;main.c: 48:     pwm10_upper = 0x09;
+   357                           ;main.c: 44:     pwm10_upper = 0x09;
    358     0792  3009               	movlw	9
    359     0793  00F2               	movwf	_pwm10_upper
    360     0794                     l592:
    361                           
-   362                           ;main.c: 50:     pwm50_lower = 0x00;
+   362                           ;main.c: 46:     pwm50_lower = 0x00;
    363     0794  01F8               	clrf	_pwm50_lower
    364     0795                     l594:
    365                           
-   366                           ;main.c: 51:     pwm50_upper = 0x2F;
+   366                           ;main.c: 47:     pwm50_upper = 0x2F;
    367     0795  302F               	movlw	47
    368     0796  00F1               	movwf	_pwm50_upper
    369                           
-   370                           ;main.c: 53:     pwm80_lower = 0x00;
+   370                           ;main.c: 49:     pwm80_lower = 0x00;
    371     0797  01F7               	clrf	_pwm80_lower
    372     0798                     l596:
    373                           
-   374                           ;main.c: 54:     pwm80_upper = 0x4B;
+   374                           ;main.c: 50:     pwm80_upper = 0x4B;
    375     0798  304B               	movlw	75
    376     0799  00F0               	movwf	_pwm80_upper
    377                           
-   378                           ;main.c: 56:     TMR2 = 0;
+   378                           ;main.c: 52:     TMR2 = 0;
    379     079A  1283               	bcf	3,5	;RP0=0, select bank0
    380     079B  1303               	bcf	3,6	;RP1=0, select bank0
    381     079C  0191               	clrf	17	;volatile
    382     079D                     l598:
    383                           
-   384                           ;main.c: 57:     TMR2ON = 1;
+   384                           ;main.c: 53:     TMR2ON = 1;
    385     079D  1512               	bsf	18,2	;volatile
    386     079E                     l43:
    387     079E  0008               	return
@@ -405,7 +405,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    391     079F                     __ptext2:	
    392 ;; *************** function _pwmDutyCycleUpdate *****************
    393 ;; Defined at:
-   394 ;;		line 60 in file "main.c"
+   394 ;;		line 56 in file "main.c"
    395 ;; Parameters:    Size  Location     Type
    396 ;;		None
    397 ;; Auto vars:     Size  Location     Type
@@ -440,19 +440,19 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    426                           ; Regs used in _pwmDutyCycleUpdate: [wreg+status,2+status,0]
    427                           
    428                           
-   429                           ;main.c: 62:     CCPR1L = pwm10_upper;
+   429                           ;main.c: 59:     CCPR1L = pwm10_upper;
    430     079F  0872               	movf	_pwm10_upper,w
    431     07A0  1283               	bcf	3,5	;RP0=0, select bank0
    432     07A1  1303               	bcf	3,6	;RP1=0, select bank0
    433     07A2  0095               	movwf	21	;volatile
    434     07A3                     l602:
    435                           
-   436                           ;main.c: 63:     CCP1CON &= ~(0x3 << 4);
+   436                           ;main.c: 60:     CCP1CON &= ~(0x3 << 4);
    437     07A3  30CF               	movlw	207
    438     07A4  0597               	andwf	23,f	;volatile
    439     07A5                     l604:
    440                           
-   441                           ;main.c: 64:     CCP1CON |= (pwm10_lower << 4);
+   441                           ;main.c: 61:     CCP1CON |= (pwm10_lower << 4);
    442     07A5  0873               	movf	_pwm10_lower,w	;volatile
    443     07A6  00F4               	movwf	??_pwmDutyCycleUpdate
    444     07A7  3003               	movlw	3
@@ -466,12 +466,12 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    452     07AE  0D74               	rlf	??_pwmDutyCycleUpdate,w
    453     07AF  0497               	iorwf	23,f	;volatile
    454                           
-   455                           ;main.c: 65:     _delay((unsigned long)((3000)*(2000000/4000.0)));
-   456     07B0  3008               	movlw	8
+   455                           ;main.c: 62:     _delay((unsigned long)((3000)*(6000000/4000.0)));
+   456     07B0  3017               	movlw	23
    457     07B1  00F6               	movwf	??_pwmDutyCycleUpdate+2
-   458     07B2  309D               	movlw	157
+   458     07B2  30D5               	movlw	213
    459     07B3  00F5               	movwf	??_pwmDutyCycleUpdate+1
-   460     07B4  3005               	movlw	5
+   460     07B4  3016               	movlw	22
    461     07B5  00F4               	movwf	??_pwmDutyCycleUpdate
    462     07B6                     u47:
    463     07B6  0BF4               	decfsz	??_pwmDutyCycleUpdate,f
@@ -480,21 +480,21 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    466     07B9  2FB6               	goto	u47
    467     07BA  0BF6               	decfsz	??_pwmDutyCycleUpdate+2,f
    468     07BB  2FB6               	goto	u47
-   469     07BC  2FBD               	nop2
+   469     07BC  0000               	nop
    470                           
-   471                           ;main.c: 68:     CCPR1L = pwm50_upper;
+   471                           ;main.c: 65:     CCPR1L = pwm50_upper;
    472     07BD  0871               	movf	_pwm50_upper,w
    473     07BE  1283               	bcf	3,5	;RP0=0, select bank0
    474     07BF  1303               	bcf	3,6	;RP1=0, select bank0
    475     07C0  0095               	movwf	21	;volatile
    476     07C1                     l606:
    477                           
-   478                           ;main.c: 69:     CCP1CON &= ~(0x3 << 4);
+   478                           ;main.c: 66:     CCP1CON &= ~(0x3 << 4);
    479     07C1  30CF               	movlw	207
    480     07C2  0597               	andwf	23,f	;volatile
    481     07C3                     l608:
    482                           
-   483                           ;main.c: 70:     CCP1CON |= (pwm50_lower << 4);
+   483                           ;main.c: 67:     CCP1CON |= (pwm50_lower << 4);
    484     07C3  0878               	movf	_pwm50_lower,w	;volatile
    485     07C4  00F4               	movwf	??_pwmDutyCycleUpdate
    486     07C5  3003               	movlw	3
@@ -508,12 +508,12 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    494     07CC  0D74               	rlf	??_pwmDutyCycleUpdate,w
    495     07CD  0497               	iorwf	23,f	;volatile
    496                           
-   497                           ;main.c: 71:     _delay((unsigned long)((3000)*(2000000/4000.0)));
-   498     07CE  3008               	movlw	8
+   497                           ;main.c: 68:     _delay((unsigned long)((3000)*(6000000/4000.0)));
+   498     07CE  3017               	movlw	23
    499     07CF  00F6               	movwf	??_pwmDutyCycleUpdate+2
-   500     07D0  309D               	movlw	157
+   500     07D0  30D5               	movlw	213
    501     07D1  00F5               	movwf	??_pwmDutyCycleUpdate+1
-   502     07D2  3005               	movlw	5
+   502     07D2  3016               	movlw	22
    503     07D3  00F4               	movwf	??_pwmDutyCycleUpdate
    504     07D4                     u57:
    505     07D4  0BF4               	decfsz	??_pwmDutyCycleUpdate,f
@@ -522,21 +522,21 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    508     07D7  2FD4               	goto	u57
    509     07D8  0BF6               	decfsz	??_pwmDutyCycleUpdate+2,f
    510     07D9  2FD4               	goto	u57
-   511     07DA  2FDB               	nop2
+   511     07DA  0000               	nop
    512                           
-   513                           ;main.c: 74:     CCPR1L = pwm80_upper;
+   513                           ;main.c: 71:     CCPR1L = pwm80_upper;
    514     07DB  0870               	movf	_pwm80_upper,w
    515     07DC  1283               	bcf	3,5	;RP0=0, select bank0
    516     07DD  1303               	bcf	3,6	;RP1=0, select bank0
    517     07DE  0095               	movwf	21	;volatile
    518     07DF                     l610:
    519                           
-   520                           ;main.c: 75:     CCP1CON &= ~(0x3 << 4);
+   520                           ;main.c: 72:     CCP1CON &= ~(0x3 << 4);
    521     07DF  30CF               	movlw	207
    522     07E0  0597               	andwf	23,f	;volatile
    523     07E1                     l612:
    524                           
-   525                           ;main.c: 76:     CCP1CON |= (pwm80_lower << 4);
+   525                           ;main.c: 73:     CCP1CON |= (pwm80_lower << 4);
    526     07E1  0877               	movf	_pwm80_lower,w	;volatile
    527     07E2  00F4               	movwf	??_pwmDutyCycleUpdate
    528     07E3  3003               	movlw	3
@@ -550,12 +550,12 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    536     07EA  0D74               	rlf	??_pwmDutyCycleUpdate,w
    537     07EB  0497               	iorwf	23,f	;volatile
    538                           
-   539                           ;main.c: 77:     _delay((unsigned long)((3000)*(2000000/4000.0)));
-   540     07EC  3008               	movlw	8
+   539                           ;main.c: 74:     _delay((unsigned long)((3000)*(6000000/4000.0)));
+   540     07EC  3017               	movlw	23
    541     07ED  00F6               	movwf	??_pwmDutyCycleUpdate+2
-   542     07EE  309D               	movlw	157
+   542     07EE  30D5               	movlw	213
    543     07EF  00F5               	movwf	??_pwmDutyCycleUpdate+1
-   544     07F0  3005               	movlw	5
+   544     07F0  3016               	movlw	22
    545     07F1  00F4               	movwf	??_pwmDutyCycleUpdate
    546     07F2                     u67:
    547     07F2  0BF4               	decfsz	??_pwmDutyCycleUpdate,f
@@ -564,7 +564,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    550     07F5  2FF2               	goto	u67
    551     07F6  0BF6               	decfsz	??_pwmDutyCycleUpdate+2,f
    552     07F7  2FF2               	goto	u67
-   553     07F8  2FF9               	nop2
+   553     07F8  0000               	nop
    554     07F9                     l46:
    555     07F9  0008               	return
    556     07FA                     __end_of_pwmDutyCycleUpdate:
@@ -676,7 +676,7 @@ DATA                 0      0       9      0.0%
 
 
 Microchip Technology PIC Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Wed Apr 02 14:51:36 2025
+Symbol Table                                                                                   Wed Apr 09 10:59:42 2025
 
                         l43 079E                          l46 07F9                          u15 07A8  
                         u25 07C6                          u35 07E4                          u47 07B6  

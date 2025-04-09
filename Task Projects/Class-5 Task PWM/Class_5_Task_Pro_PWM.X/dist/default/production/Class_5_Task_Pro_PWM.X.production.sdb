@@ -11,11 +11,11 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"31 E:\Users\sagar\Argyn Technology\Task Projects\Class-5 Task PWM\Class_5_Task_Pro_PWM.X\main.c
+"33 E:\Users\sagar\Argyn Technology\Task Projects\Class-5 Task PWM\Class_5_Task_Pro_PWM.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"38
+"40
 [v _pwmInit pwmInit `(v  1 e 1 0 ]
-"58
+"60
 [v _pwmDutyCycleUpdate pwmDutyCycleUpdate `(v  1 e 1 0 ]
 "730 D:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
 [v _TMR2 TMR2 `VEuc  1 e 1 @17 ]
@@ -31,27 +31,27 @@
 [v _PR2 PR2 `VEuc  1 e 1 @146 ]
 "2906
 [v _TMR2ON TMR2ON `VEb  1 e 0 @146 ]
-"27 E:\Users\sagar\Argyn Technology\Task Projects\Class-5 Task PWM\Class_5_Task_Pro_PWM.X\main.c
+"29 E:\Users\sagar\Argyn Technology\Task Projects\Class-5 Task PWM\Class_5_Task_Pro_PWM.X\main.c
 [v _pwm20_lower pwm20_lower `uc  1 e 1 0 ]
 [v _pwm20_upper pwm20_upper `uc  1 e 1 0 ]
-"28
+"30
 [v _pwm60_lower pwm60_lower `uc  1 e 1 0 ]
 [v _pwm60_upper pwm60_upper `uc  1 e 1 0 ]
-"29
+"31
 [v _pwm90_lower pwm90_lower `uc  1 e 1 0 ]
 [v _pwm90_upper pwm90_upper `uc  1 e 1 0 ]
-"31
+"33
 [v _main main `(v  1 e 1 0 ]
 {
-"36
-} 0
 "38
+} 0
+"40
 [v _pwmInit pwmInit `(v  1 e 1 0 ]
 {
-"56
-} 0
 "58
+} 0
+"60
 [v _pwmDutyCycleUpdate pwmDutyCycleUpdate `(v  1 e 1 0 ]
 {
-"76
+"78
 } 0

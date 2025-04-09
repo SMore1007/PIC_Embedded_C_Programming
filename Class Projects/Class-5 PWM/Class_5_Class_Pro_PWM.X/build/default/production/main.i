@@ -1916,22 +1916,18 @@ extern __bank0 __bit __timeout;
 
 
 
+
 void pwmInit(void);
 void pwmDutyCycleUpdate(void);
 uint8_t pwm10_lower, pwm10_upper;
 uint8_t pwm50_lower, pwm50_upper;
 uint8_t pwm80_lower, pwm80_upper;
 
-
-
-
-
-void pwmInit(void);
-void pwmDutyCycleUpdate(void);
-
-void main(void) {
+void main(void)
+{
     pwmInit();
-    while (1) {
+    while (1)
+    {
         pwmDutyCycleUpdate();
     }
 }
@@ -1954,22 +1950,23 @@ void pwmInit(void) {
     TMR2ON = 1;
 }
 
-void pwmDutyCycleUpdate(void) {
+void pwmDutyCycleUpdate(void)
+{
 
     CCPR1L = pwm10_upper;
     CCP1CON &= ~(0x3 << 4);
     CCP1CON |= (pwm10_lower << 4);
-    _delay((unsigned long)((3000)*(2000000/4000.0)));
+    _delay((unsigned long)((3000)*(6000000/4000.0)));
 
 
     CCPR1L = pwm50_upper;
     CCP1CON &= ~(0x3 << 4);
     CCP1CON |= (pwm50_lower << 4);
-    _delay((unsigned long)((3000)*(2000000/4000.0)));
+    _delay((unsigned long)((3000)*(6000000/4000.0)));
 
 
     CCPR1L = pwm80_upper;
     CCP1CON &= ~(0x3 << 4);
     CCP1CON |= (pwm80_lower << 4);
-    _delay((unsigned long)((3000)*(2000000/4000.0)));
+    _delay((unsigned long)((3000)*(6000000/4000.0)));
 }

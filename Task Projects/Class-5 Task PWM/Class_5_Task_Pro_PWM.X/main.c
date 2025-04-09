@@ -19,7 +19,7 @@
 #include <xc.h>
 #include <stdint.h>
 
-#define _XTAL_FREQ 2000000  // Define oscillator frequency for delay calculations
+#define _XTAL_FREQ 6000000  // Define oscillator frequency for delay calculations
 
 // Function prototypes
 void pwmInit(void);
