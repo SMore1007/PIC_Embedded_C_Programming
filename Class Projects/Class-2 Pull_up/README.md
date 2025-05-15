@@ -8,12 +8,19 @@ It shows how digital input pins can be configured to use pull-up functionality, 
 inputs and ensuring reliable digital reads.
 
 ## 🎥 Demo Video
+```
 
-[▶️ Watch Demo Video](
-    '''
-    https://www.youtube.com/watch?v=Lhszho_o4rM
-    '''
-    )
+▶️ Watch Demo Video
+
+
+
+```markdown
+
+https://www.youtube.com/watch?v=Lhszho_o4rM
+
+```
+
+```markdown
 
 ## 🧠 Key Concepts
 
