@@ -13,9 +13,7 @@ inputs and ensuring reliable digital reads.
 
 
 ```markdown
-
 https://www.youtube.com/watch?v=Lhszho_o4rM
-
 ```
 
 
