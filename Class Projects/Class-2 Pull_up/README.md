@@ -9,7 +9,11 @@ inputs and ensuring reliable digital reads.
 
 ## 🎥 Demo Video
 
-[▶️ Watch Demo Video](https://www.youtube.com/watch?v=Lhszho_o4rM)
+[▶️ Watch Demo Video](
+    '''
+    https://www.youtube.com/watch?v=Lhszho_o4rM
+    '''
+    )
 
 ## 🧠 Key Concepts
 
