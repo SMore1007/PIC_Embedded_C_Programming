@@ -8,7 +8,7 @@ It shows how digital input pins can be configured to use pull-up functionality, 
 inputs and ensuring reliable digital reads.
 
 
-##▶️ Watch Demo Video
+## ▶️ Watch Demo Video
 
 
 
