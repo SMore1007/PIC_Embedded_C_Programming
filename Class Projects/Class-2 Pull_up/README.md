@@ -1,5 +1,5 @@
-Here’s a short and clean `README.md` file for your project, including the embedded YouTube video link and a brief description:
 
+## Pull Up in PIC16F877A
 ```markdown
 # PIC16F877A Pull-Up Resistor Demo
 
@@ -26,5 +26,3 @@ This project demonstrates the use of internal pull-up resistors in the PIC16F877
 
 Feel free to clone and explore the code to understand how pull-up resistors work with PIC microcontrollers.
 ```
-
-Let me know if you'd like to include the code section or wiring diagram as well!
