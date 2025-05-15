@@ -3,11 +3,13 @@
 ```markdown
 # PIC16F877A Pull-Up Resistor Demo
 
-This project demonstrates the use of internal pull-up resistors in the PIC16F877A microcontroller. It shows how digital input pins can be configured to use pull-up functionality, helping to avoid floating inputs and ensuring reliable digital reads.
+This project demonstrates the use of internal pull-up resistors in the PIC16F877A microcontroller. 
+It shows how digital input pins can be configured to use pull-up functionality, helping to avoid floating 
+inputs and ensuring reliable digital reads.
 
 ## 🎥 Demo Video
 
-▶️ [Watch Demo Video](https://www.youtube.com/watch?v=Lhszho_o4rM)
+[▶️ Watch Demo Video](https://www.youtube.com/watch?v=Lhszho_o4rM)
 
 ## 🧠 Key Concepts
 
