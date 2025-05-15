@@ -7,7 +7,7 @@ This project demonstrates the use of internal pull-up resistors in the PIC16F877
 
 ## 🎥 Demo Video
 
-[![Watch the video](https://img.youtube.com/vi/Lhszho_o4rM/maxresdefault.jpg)](https://www.youtube.com/watch?v=Lhszho_o4rM)
+▶️ [Watch Demo Video](https://www.youtube.com/watch?v=Lhszho_o4rM)
 
 ## 🧠 Key Concepts
 
