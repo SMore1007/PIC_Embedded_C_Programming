@@ -1957,7 +1957,8 @@ void main(void)
         adcHigh = ADRESH;
         adcLow = ADRESL;
         adcVolt = ((adcHigh << 8) | adcLow);
-
+        if(adcVolt < 2) adcVolt = 0;
+        if(adcVolt == 1022) adcVolt = 1023;
         LcdCommand(0x84);
         LcdOutput(adcVolt);
         _delay((unsigned long)((10)*(2000000/4000.0)));
@@ -2023,7 +2024,7 @@ void AN1_init(void)
 
 void AN4_init(void)
 {
-    ADCON0 &= 0b11000111;
+ADCON0 &= 0b11000111;
     ADCON0 |= (1 << 5);
     _delay((unsigned long)((20)*(2000000/4000000.0)));
 }

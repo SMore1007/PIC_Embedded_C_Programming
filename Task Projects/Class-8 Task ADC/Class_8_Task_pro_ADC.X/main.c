@@ -60,7 +60,8 @@ void main(void)
         adcHigh = ADRESH;
         adcLow = ADRESL;        
         adcVolt = ((adcHigh << 8) | adcLow);  // right justification
-
+        if(adcVolt < 2) adcVolt = 0;
+        if(adcVolt == 1022) adcVolt = 1023;
         LcdCommand(0x84);                // Display on first line after CH1:
         LcdOutput(adcVolt);
         __delay_ms(10);
@@ -126,7 +127,7 @@ void AN1_init(void)
 /* Channel 4 selection function */
 void AN4_init(void)
 {
-    ADCON0 &= 0b11000111;       // Clear CHS bits
+ADCON0 &= 0b11000111;       // Clear CHS bits
     ADCON0 |= (1 << 5);         // CHS = 100 (AN4)
     __delay_us(20);             // Acquisition time
 }
