@@ -36,10 +36,11 @@ void main(void)
 }
 
 void pwmInit(void) {
-    TRISC = 0xFB;  // Make RC2 (CCP1) an output
+    TRISC = 0xFB;    // Make RC2 (CCP1) an output
     CCP1CON = 0x0C;  // PWM mode, 10-bit
-    T2CON = 0x06;  // Timer2 ON, prescaler 1:16
-    PR2 = 0x5E;  // Set period
+    T2CON = 0x06;    // Timer2 ON, prescaler 1:16
+    PR2 = 0x5E;      // Set period
+    
     pwm10_lower = 0x02; 
     pwm10_upper = 0x09;
     
