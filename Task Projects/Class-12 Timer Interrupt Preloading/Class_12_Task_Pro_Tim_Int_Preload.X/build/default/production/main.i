@@ -1926,10 +1926,10 @@ void main()
 {
 
   TRISB = 0x00;
-  TRISD = 0x00;
+  TRISC = 0x00;
 
   PORTB = 0x00;
-  PORTD = 0x00;
+  PORTC = 0x00;
 
   timer1Init();
 
@@ -1978,7 +1978,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
     C++;
     if(C == 20)
     {
-      PORTD = ~PORTD;
+      PORTC = ~PORTC;
       C = 0;
     }
 

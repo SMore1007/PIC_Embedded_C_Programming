@@ -19,8 +19,8 @@
 [v _ISR ISR `II(v  1 e 1 0 ]
 "216 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc/pic16f877a.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
-"340
-[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"278
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "454
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
 "532
@@ -31,8 +31,8 @@
 [v _T1CON T1CON `VEuc  1 e 1 @16 ]
 "1375
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-"1499
-[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1618
 [v _PIE1 PIE1 `VEuc  1 e 1 @140 ]
 "24 D:\Argyan Technology\PIC_Embedded_C_Programming\Task Projects\Class-12 Timer Interrupt Preloading\Class_12_Task_Pro_Tim_Int_Preload.X\main.c

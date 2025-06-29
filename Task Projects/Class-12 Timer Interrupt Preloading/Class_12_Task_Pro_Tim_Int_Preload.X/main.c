@@ -29,10 +29,10 @@ void main()
 {
   // -- [[ IO Configurations ]] --
   TRISB = 0x00;  // PORTB as output
-  TRISD = 0x00;  // PORTD as output (used in ISR)
+  TRISC = 0x00;  // PORTD as output (used in ISR)
   
   PORTB = 0x00;
-  PORTD = 0x00;
+  PORTC = 0x00;
 
   timer1Init();
 
@@ -81,7 +81,7 @@ void __interrupt() ISR(void)
     C++;
     if(C == 20)
     {
-      PORTD = ~PORTD; // Toggle PORTD
+      PORTC = ~PORTC; // Toggle PORTD
       C = 0;
     }
 
