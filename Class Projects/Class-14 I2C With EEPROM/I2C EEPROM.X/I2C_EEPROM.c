@@ -4,8 +4,10 @@
 #define _XTAL_FREQ 16000000
 #define EEPROM_Address_R  0xA1
 #define EEPROM_Address_W  0xA0
+
 //---------------[ I2C Routines ]-------------------
 //--------------------------------------------------
+
 void I2C_Master_Init(const unsigned long baud)
 {
     SSPCON = 0b00101000;
