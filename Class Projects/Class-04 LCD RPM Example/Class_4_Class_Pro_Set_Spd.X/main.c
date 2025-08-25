@@ -24,6 +24,7 @@ void Lcdinit(void);          // Function prototype for LCD initialization
 void LcdCommand(uint8_t i);    // Function prototype for sending commands to the LCD
 void LcdData(uint8_t i);       // Function prototype for sending data to the LCD
 void LcdOutput(uint16_t i);
+
 void keyScan(void);
 
 uint8_t Array[15] = {"SET SPD:    rpm"};
